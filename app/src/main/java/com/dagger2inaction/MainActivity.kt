@@ -28,6 +28,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         (application as MyApplication).applicationComponent.inject(this)
+
+        val map =  (application as MyApplication).applicationComponent.getMap()
+
         mainViewModel = ViewModelProvider(this, mainViewModelFactory)[MainViewModel::class.java]
 
         mainViewModel.productsLiveData.observe(this, Observer {
